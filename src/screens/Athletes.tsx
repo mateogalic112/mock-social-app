@@ -1,5 +1,4 @@
-import React from "react";
-
+import { Link } from "react-router-dom";
 import useSWR from "swr";
 import { fetcher } from "../config/API";
 
@@ -37,7 +36,9 @@ const Athletes = () => {
               <td>
                 <Avatar src={athlete.avatar} />
               </td>
-              <td>{athlete.name}</td>
+              <td>
+                <Link to={`/athletes/${athlete.id}`}>{athlete.name}</Link>
+              </td>
               <td>{athlete.age}</td>
               <td>
                 <Avatar src={athlete.country.icon} />
