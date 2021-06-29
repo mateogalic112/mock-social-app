@@ -3,13 +3,15 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Feed from "./screens/Feed";
 import Athletes from "./screens/Athletes";
+import AthleteSingle from "./screens/Athlete";
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={Feed} />
-        <Route path="/athletes" component={Athletes} />
+        <Route exact path="/athletes" component={Athletes} />
+        <Route path="/athletes/:id" component={AthleteSingle} />
       </Switch>
     </Router>
   );

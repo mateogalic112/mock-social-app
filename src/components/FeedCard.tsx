@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Feed } from "../models/Feed";
-
+import { Link } from "react-router-dom";
 import {
   Card,
   CardMedia,
@@ -74,23 +74,25 @@ const FeedCard: React.FC<FeedCardProps> = ({ feed, screenOffset }) => {
           controls={onScreen}
           className={classes.media}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {feed.sportGroup.name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {feed.description}
-          </Typography>
-          <Box display="flex" className={classes.metaWrapper}>
-            <Avatar alt={feed.athlete.name} src={feed.athlete.country.icon} />
-            <Box mx={2}>
-              <Typography variant="body1">{feed.athlete.name}</Typography>
-              <Typography variant="body2" color="textSecondary">
-                {feed.athlete.sport.name}
-              </Typography>
+        <Link to={`/athletes/${feed.athlete.id}`}>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {feed.sportGroup.name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {feed.description}
+            </Typography>
+            <Box display="flex" className={classes.metaWrapper}>
+              <Avatar alt={feed.athlete.name} src={feed.athlete.country.icon} />
+              <Box mx={2}>
+                <Typography variant="body1">{feed.athlete.name}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {feed.athlete.sport.name}
+                </Typography>
+              </Box>
             </Box>
-          </Box>
-        </CardContent>
+          </CardContent>
+        </Link>
       </CardActionArea>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">

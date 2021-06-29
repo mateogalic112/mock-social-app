@@ -35,8 +35,10 @@ const Header: React.FC = () => {
     switch (location.pathname) {
       case "/athletes":
         return "Athletes";
-      default:
+      case "/":
         return "Feed";
+      default:
+        return "Single Athlete";
     }
   };
 
