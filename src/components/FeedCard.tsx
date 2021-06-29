@@ -15,7 +15,6 @@ import {
   Box,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import useOnScreen from "../hooks/useOnScreen";
@@ -57,11 +56,6 @@ const FeedCard: React.FC<FeedCardProps> = ({ feed, screenOffset }) => {
       <CardHeader
         avatar={
           <Avatar aria-label="author">{feed.author.name.charAt(0)}</Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
         }
         title={feed.author.name}
         subheader={feed.createdBefore}

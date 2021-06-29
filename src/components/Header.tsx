@@ -4,6 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import Search from "./Search";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,6 +37,9 @@ const Header: React.FC = () => {
           <Typography variant="h6" className={classes.title}>
             {displayPageName()}
           </Typography>
+
+          <Search />
+
           <nav>
             <ul>
               <li>
