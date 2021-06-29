@@ -19,3 +19,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  margin-left: 1rem;
+}
