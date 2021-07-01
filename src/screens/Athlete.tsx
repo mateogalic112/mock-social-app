@@ -10,6 +10,7 @@ import "../App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { Avatar, Box, Grid, Typography } from "@material-ui/core";
 import { Athlete } from "../models/Feed";
+import Header from "../components/Header";
 
 const useStyles = makeStyles({
   imageWrapper: {
@@ -41,34 +42,37 @@ const AthleteSingle = ({ match }: RouteComponentProps<{ id: string }>) => {
   if (error) return <h1>Error</h1>;
 
   return (
-    <Layout>
-      <Grid container spacing={5}>
-        <Grid item xs={12} md={6}>
-          <img
-            alt={athlete.name}
-            src={athlete.avatar}
-            className={classes.media}
-          />
-        </Grid>
+    <>
+      <Header>{athlete.name}</Header>
+      <Layout>
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={6}>
+            <img
+              alt={athlete.name}
+              src={athlete.avatar}
+              className={classes.media}
+            />
+          </Grid>
 
-        <Grid item xs={12} md={6}>
-          <Typography gutterBottom variant="h5" component="h2">
-            {athlete.name}
-          </Typography>
-          <Typography gutterBottom variant="subtitle1" component="h4">
-            {athlete.club}
-          </Typography>
-          <Typography gutterBottom variant="subtitle2" component="h5">
-            {athlete.age} Y.O.
-          </Typography>
-          <Box display="flex" alignItems="center">
-            <Avatar src={athlete.country.icon} />
-            <Box ml={2}></Box>
-            <Typography variant="body1">{athlete.country.name}</Typography>
-          </Box>
+          <Grid item xs={12} md={6}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {athlete.name}
+            </Typography>
+            <Typography gutterBottom variant="subtitle1" component="h4">
+              {athlete.club}
+            </Typography>
+            <Typography gutterBottom variant="subtitle2" component="h5">
+              {athlete.age} Y.O.
+            </Typography>
+            <Box display="flex" alignItems="center">
+              <Avatar src={athlete.country.icon} />
+              <Box ml={2}></Box>
+              <Typography variant="body1">{athlete.country.name}</Typography>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

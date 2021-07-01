@@ -1,5 +1,8 @@
 import React from "react";
 
+import { useHistory } from "react-router-dom";
+import { useDebounce } from "../hooks/useDebounce";
+
 import {
   createStyles,
   makeStyles,
@@ -54,18 +57,39 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Search: React.FC = () => {
   const classes = useStyles();
+
+  const history = useHistory();
+  const [keyword, setKeyword] = React.useState<string>("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setKeyword(e.target.value);
+  };
+
+  const debouncedSearchTerm = useDebounce(keyword, 750);
+  React.useEffect(() => {
+    if (debouncedSearchTerm) {
+      history.push(`/search/${debouncedSearchTerm}`);
+    }
+  }, [debouncedSearchTerm, history]);
+
+  console.log(keyword);
+
   return (
     <div className={classes.search}>
       <div className={classes.searchIcon}>
         <SearchIcon />
       </div>
       <InputBase
-        placeholder="Search…"
+        placeholder="Search by athlete id"
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,
         }}
         inputProps={{ "aria-label": "search" }}
+        value={keyword}
+        onChange={handleChange}
       />
     </div>
   );

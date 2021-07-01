@@ -2,7 +2,6 @@ import React from "react";
 
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Header from "./Header";
 
 const useStyles = makeStyles({
   container: {
@@ -15,7 +14,6 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-      <Header />
       <Container maxWidth="sm" className={classes.container}>
         <main>{children}</main>
       </Container>

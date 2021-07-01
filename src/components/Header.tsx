@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
@@ -14,28 +14,15 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Header: React.FC = () => {
+const Header: React.FC = ({ children }) => {
   const classes = useStyles();
-
-  let location = useLocation();
-
-  const displayPageName = () => {
-    switch (location.pathname) {
-      case "/athletes":
-        return "Athletes";
-      case "/":
-        return "Feed";
-      default:
-        return "Single Athlete";
-    }
-  };
 
   return (
     <header>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            {displayPageName()}
+            {children}
           </Typography>
 
           <Search />
