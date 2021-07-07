@@ -13,7 +13,7 @@ function App() {
         <Route exact path="/" component={Feed} />
         <Route exact path="/athletes" component={Athletes} />
         <Route path="/athletes/:id" component={AthleteSingle} />
-        <Route path="/search/:keyword" component={SearchPage} />
+        <Route path="/search" component={SearchPage} />
       </Switch>
     </Router>
   );

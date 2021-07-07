@@ -64,13 +64,15 @@ const Search: React.FC = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setKeyword(e.target.value);
+    if (Number(e.target.value)) {
+      setKeyword(e.target.value);
+    }
   };
 
   const debouncedSearchTerm = useDebounce(keyword, 750);
   React.useEffect(() => {
     if (debouncedSearchTerm) {
-      history.push(`/search/${debouncedSearchTerm}`);
+      history.push(`/search?keyword=${debouncedSearchTerm}`);
     }
   }, [debouncedSearchTerm, history]);
 
