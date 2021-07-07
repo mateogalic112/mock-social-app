@@ -5,6 +5,7 @@ import Feed from "./screens/Feed";
 import Athletes from "./screens/Athletes";
 import AthleteSingle from "./screens/Athlete";
 import SearchPage from "./screens/SearchPage";
+import NotFound from "./screens/NotFound";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={Feed} />
         <Route exact path="/athletes" component={Athletes} />
-        <Route path="/athletes/:id" component={AthleteSingle} />
+        <Route path="/athletes/:id(\d+)" component={AthleteSingle} />
         <Route path="/search" component={SearchPage} />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );
