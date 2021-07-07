@@ -45,12 +45,6 @@ const FeedCard: React.FC<FeedCardProps> = ({ feed, screenOffset }) => {
 
   const onScreen = useOnScreen(ref, screenOffset);
 
-  if (onScreen) {
-    console.log(feed.id);
-  }
-
-  console.log(feed.athlete.avatar);
-
   return (
     <Card className={classes.root} ref={ref}>
       <CardHeader

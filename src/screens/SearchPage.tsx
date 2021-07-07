@@ -17,8 +17,6 @@ const SearchPage = ({ match }: RouteComponentProps<{ keyword: string }>) => {
     fetcherWithSearch
   );
 
-  console.log("data", data);
-
   if (!data && !error) return <Loader />;
   if (error) return <h1>Error</h1>;
   return (

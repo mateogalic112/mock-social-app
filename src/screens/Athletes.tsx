@@ -14,8 +14,6 @@ import Header from "../components/Header";
 const Athletes = () => {
   const { data, error } = useSWR("/athlete", fetcher);
 
-  console.log(data);
-
   if (!data && !error) return <Loader />;
   if (error) return <h1>Error</h1>;
 

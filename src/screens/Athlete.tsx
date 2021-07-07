@@ -30,13 +30,10 @@ const useStyles = makeStyles({
 const AthleteSingle = ({ match }: RouteComponentProps<{ id: string }>) => {
   const classes = useStyles();
   const { id } = match.params;
-  console.log(id);
 
   const { data, error } = useSWR(["/athlete", id], fetcherWithParam);
 
   const athlete: Athlete = data;
-
-  console.log(data);
 
   if (!data && !error) return <Loader />;
   if (error) return <h1>Error</h1>;

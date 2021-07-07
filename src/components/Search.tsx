@@ -74,8 +74,6 @@ const Search: React.FC = () => {
     }
   }, [debouncedSearchTerm, history]);
 
-  console.log(keyword);
-
   return (
     <div className={classes.search}>
       <div className={classes.searchIcon}>

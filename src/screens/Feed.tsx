@@ -12,8 +12,6 @@ import Header from "../components/Header";
 const FeedList: React.FC = () => {
   const { data, error } = useSWR("/feed", fetcher);
 
-  console.log(data);
-
   if (!data && !error) return <Loader />;
   if (error) return <h1>Error</h1>;
   return (
